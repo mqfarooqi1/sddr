@@ -1,8 +1,8 @@
 # Changelog
 
-## sddr 0.0.0.9000
+## sddr 0.1.0
 
-- Initial scaffold.
+- Initial CRAN release.
 - [`markov()`](https://mqfarooqi1.github.io/sddr/reference/markov.md):
   classic discrete-time, first-order Markov transition estimation from
   tidy long-format `id`/`time`/`value` panel data, with quantile-based

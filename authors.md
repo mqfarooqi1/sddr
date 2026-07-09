@@ -11,12 +11,12 @@ Source:
 [`DESCRIPTION`](https://github.com/mqfarooqi1/sddr/blob/main/DESCRIPTION)
 
 Farooqi M (2026). *sddr: Spatial Distribution Dynamics*. R package
-version 0.0.0.9000, <https://github.com/mqfarooqi1/sddr>.
+version 0.1.0, <https://github.com/mqfarooqi1/sddr>.
 
     @Manual{,
       title = {sddr: Spatial Distribution Dynamics},
       author = {Muhammad Farooqi},
       year = {2026},
-      note = {R package version 0.0.0.9000},
+      note = {R package version 0.1.0},
       url = {https://github.com/mqfarooqi1/sddr},
     }
