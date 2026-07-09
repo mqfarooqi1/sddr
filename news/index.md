@@ -1,0 +1,28 @@
+# Changelog
+
+## sddr 0.0.0.9000
+
+- Initial scaffold.
+- [`markov()`](https://mqfarooqi1.github.io/sddr/reference/markov.md):
+  classic discrete-time, first-order Markov transition estimation from
+  tidy long-format `id`/`time`/`value` panel data, with quantile-based
+  (fixed or per-period) class discretisation.
+- [`spatial_markov()`](https://mqfarooqi1.github.io/sddr/reference/spatial_markov.md):
+  spatial Markov chain (Rey 2001) with transition matrices conditioned
+  on the spatial-lag class of the neighbourhood. Accepts either a
+  spatial weights matrix (lag computed internally) or a precomputed lag
+  column, and explicit `breaks` / `lag_breaks` cut points. With matching
+  cut points it reproduces PySAL `giddy`’s spatial Markov matrices to
+  machine precision.
+- [`steady_state()`](https://mqfarooqi1.github.io/sddr/reference/steady_state.md):
+  ergodic / stationary distribution of a transition matrix or an
+  `sddr_markov` object.
+- [`mfpt()`](https://mqfarooqi1.github.io/sddr/reference/mfpt.md): mean
+  first passage times (Kemeny-Snell fundamental matrix), with mean
+  recurrence times on the diagonal.
+- [`sojourn_time()`](https://mqfarooqi1.github.io/sddr/reference/sojourn_time.md):
+  expected persistence time in each class.
+- [`print()`](https://rdrr.io/r/base/print.html) methods for
+  `sddr_markov` and `sddr_spatial_markov`.
+- Hex logo, pkgdown site configuration, and GitHub Actions R-CMD-check
+  CI.

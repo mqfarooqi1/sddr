@@ -1,0 +1,21 @@
+# Package index
+
+## Markov chains
+
+Estimate class-transition dynamics from tidy panel data.
+
+- [`markov()`](https://mqfarooqi1.github.io/sddr/reference/markov.md) :
+  Classic Markov chain for distribution dynamics
+- [`spatial_markov()`](https://mqfarooqi1.github.io/sddr/reference/spatial_markov.md)
+  : Spatial Markov chain for distribution dynamics
+
+## Ergodic analysis
+
+Long-run behaviour of a transition matrix.
+
+- [`steady_state()`](https://mqfarooqi1.github.io/sddr/reference/steady_state.md)
+  : Ergodic (steady-state) distribution of a Markov chain
+- [`mfpt()`](https://mqfarooqi1.github.io/sddr/reference/mfpt.md) : Mean
+  first passage times
+- [`sojourn_time()`](https://mqfarooqi1.github.io/sddr/reference/sojourn_time.md)
+  : Sojourn times
