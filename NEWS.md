@@ -6,6 +6,8 @@
   (fixed or per-period) class discretisation.
 * `full_rank_markov()` and `geo_rank_markov()`: rank-based Markov chains
   (ranks-as-states, and units-exchanging-rank-positions) — no binning required.
+* `lisa_markov()`: Markov chain over the four Moran-scatterplot quadrants
+  (HH/LH/LL/HL), capturing the joint dynamics of a unit and its neighbourhood.
 * `spatial_markov()`: spatial Markov chain (Rey 2001) with transition matrices
   conditioned on the spatial-lag class of the neighbourhood. Accepts either a
   spatial weights matrix (lag computed internally) or a precomputed lag column,

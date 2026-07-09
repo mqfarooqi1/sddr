@@ -174,3 +174,29 @@ test_that("full-rank and geo-rank Markov match PySAL giddy", {
   expect_equal(unname(geo_rank_markov(df, "id", "time", "value")$matrix),
                unname(as.matrix(grm$p)), tolerance = 1e-9)
 })
+
+test_that("LISA Markov matches PySAL giddy", {
+  skip_if_not(giddy_available(), "PySAL giddy not importable via reticulate")
+  have_libpysal <- tryCatch({ reticulate::import("libpysal"); TRUE },
+                            error = function(e) FALSE)
+  skip_if_not(have_libpysal, "libpysal not available")
+
+  giddy <- reticulate::import("giddy")
+  np <- reticulate::import("numpy")
+  libpysal <- reticulate::import("libpysal")
+
+  set.seed(21)
+  nr <- 5L; nc <- 5L; n <- nr * nc; periods <- 14L
+  w <- libpysal$weights$lat2W(nr, nc)
+  y <- matrix(rnorm(n * periods), n, periods)
+  wf <- w$full(); Wmat <- wf[[1]]; ids <- as.integer(wf[[2]])
+  dimnames(Wmat) <- list(ids, ids)
+
+  lm <- giddy$markov$LISA_Markov(np$array(y), w)
+  df <- data.frame(id = rep(ids, times = periods),
+                   time = rep(1:periods, each = n), value = as.vector(y))
+  sl <- lisa_markov(df, "id", "time", "value", weights = Wmat)
+
+  expect_equal(sl$quadrants, unname(as.matrix(lm$q)))
+  expect_equal(unname(sl$matrix), unname(as.matrix(lm$p)), tolerance = 1e-9)
+})

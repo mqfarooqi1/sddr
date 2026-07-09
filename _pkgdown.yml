@@ -12,6 +12,7 @@ reference:
   contents:
   - markov
   - spatial_markov
+  - lisa_markov
   - full_rank_markov
   - geo_rank_markov
 - title: Ergodic analysis
