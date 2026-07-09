@@ -6,7 +6,9 @@
 \alias{sddr-package}
 \title{sddr: Spatial Distribution Dynamics}
 \description{
-A tidy toolkit for the analysis of distribution dynamics: how a cross-sectional distribution of values evolves over time. Provides discrete-time Markov transition estimation, ergodic (steady-state) analysis, and - across later releases - spatial Markov chains, rank mobility, continuous stochastic kernels and modern inference. Methods build on the distribution-dynamics literature (Quah (1993) \doi{10.1016/0014-2921(93)90031-3}) and are designed around long-format 'id'/'time'/'value' data rather than transition matrices, so that panel data and (in later releases) 'sf' objects flow through unchanged.
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
+A tidy toolkit for distribution dynamics: analysing how a cross-sectional distribution of values evolves over time and where it settles in the long run. Provides discrete-time and spatial Markov transition estimation and ergodic (steady-state) analysis, and is being extended with rank-mobility measures, continuous stochastic kernels, continuous-time transitions and modern inference. Methods build on the distribution-dynamics literature (Quah (1993) \doi{10.1016/0014-2921(93)90031-3}; Rey (2001) \doi{10.1111/j.1538-4632.2001.tb00444.x}), use long-format 'id'/'time'/'value' data rather than transition matrices, and are checked for numerical parity against the reference 'giddy' library.
 }
 \seealso{
 Useful links:

@@ -1,0 +1,20 @@
+url: https://mqfarooqi1.github.io/sddr
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#7c5cff"
+    base_font: {google: "Inter"}
+
+reference:
+- title: Markov chains
+  desc: Estimate class-transition dynamics from tidy panel data.
+  contents:
+  - markov
+  - spatial_markov
+- title: Ergodic analysis
+  desc: Long-run behaviour of a transition matrix.
+  contents:
+  - steady_state
+  - mfpt
+  - sojourn_time

@@ -11,4 +11,8 @@
   reproduces PySAL `giddy`'s spatial Markov matrices to machine precision.
 * `steady_state()`: ergodic / stationary distribution of a transition matrix
   or an `sddr_markov` object.
+* `mfpt()`: mean first passage times (Kemeny-Snell fundamental matrix), with
+  mean recurrence times on the diagonal.
+* `sojourn_time()`: expected persistence time in each class.
 * `print()` methods for `sddr_markov` and `sddr_spatial_markov`.
+* Hex logo, pkgdown site configuration, and GitHub Actions R-CMD-check CI.

@@ -6,3 +6,6 @@
 ^LICENSE\.md$
 ^.*\.Rcheck$
 ^cran-comments\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

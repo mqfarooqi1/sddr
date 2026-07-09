@@ -84,3 +84,24 @@ test_that("spatial Markov matches PySAL giddy with identical cutoffs", {
     expect_equal(gP[i, , ], unname(smk$matrices[[i]]), tolerance = 1e-9)
   }
 })
+
+test_that("ergodic quantities match PySAL giddy", {
+  skip_if_not(giddy_available(), "PySAL giddy not importable via reticulate")
+
+  giddy <- reticulate::import("giddy")
+  np <- reticulate::import("numpy")
+
+  set.seed(5)
+  k <- 5L
+  P <- matrix(runif(k * k), k, k); P <- P / rowSums(P)
+
+  expect_equal(as.numeric(steady_state(P)),
+               as.numeric(giddy$ergodic$steady_state(np$array(P))),
+               tolerance = 1e-9)
+  expect_equal(unname(mfpt(P)),
+               unname(as.matrix(giddy$ergodic$mfpt(np$array(P)))),
+               tolerance = 1e-7)
+  expect_equal(as.numeric(sojourn_time(P)),
+               as.numeric(giddy$markov$sojourn_time(np$array(P))),
+               tolerance = 1e-9)
+})

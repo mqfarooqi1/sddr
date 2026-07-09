@@ -1,6 +1,10 @@
-# sddr
+# sddr <a href="https://mqfarooqi1.github.io/sddr/"><img src="man/figures/logo.svg" align="right" height="132" alt="sddr website" /></a>
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/mqfarooqi1/sddr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mqfarooqi1/sddr/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/sddr)](https://CRAN.R-project.org/package=sddr)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
 **The complete toolkit for distribution dynamics in R** — analysing how a
