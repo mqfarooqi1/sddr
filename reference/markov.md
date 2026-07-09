@@ -98,7 +98,6 @@ An object of class `sddr_markov`: a list with elements
 
 Quah, D. (1993). Empirical cross-section dynamics in economic growth.
 *European Economic Review*, 37(2-3), 426-434.
-[doi:10.1016/0014-2921(93)90031-3](https://doi.org/10.1016/0014-2921%2893%2990031-3)
 
 ## See also
 
