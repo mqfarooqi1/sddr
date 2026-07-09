@@ -14,6 +14,7 @@ spatial_markov(
   k = 5,
   m = k,
   breaks = NULL,
+  lag_breaks = NULL,
   fixed = TRUE,
   row_standardize = TRUE
 )
@@ -45,6 +46,12 @@ spatial lag of \code{value}.}
 \item{breaks}{Optional numeric vector of \emph{interior} class boundaries. If
 supplied these fixed cut points are used instead of data-driven quantiles,
 giving \code{length(breaks) + 1} classes.}
+
+\item{lag_breaks}{Optional numeric vector of \emph{interior} class boundaries for
+the spatial lag (the lag analogue of \code{breaks}). If supplied, these fixed
+cut points are used instead of data-driven quantiles. Supplying both
+\code{breaks} and \code{lag_breaks} makes the classification fully explicit, which is
+how exact agreement with \code{giddy} (\code{cutoffs} / \code{lag_cutoffs}) is obtained.}
 
 \item{fixed}{Logical. If \code{TRUE} (default) a single set of quantile breaks is
 estimated from the pooled distribution and applied to every period

@@ -24,6 +24,11 @@
 #'   spatial lag of `value`.
 #' @param m Integer number of spatial-lag classes to condition on. Defaults to
 #'   `k`.
+#' @param lag_breaks Optional numeric vector of *interior* class boundaries for
+#'   the spatial lag (the lag analogue of `breaks`). If supplied, these fixed
+#'   cut points are used instead of data-driven quantiles. Supplying both
+#'   `breaks` and `lag_breaks` makes the classification fully explicit, which is
+#'   how exact agreement with `giddy` (`cutoffs` / `lag_cutoffs`) is obtained.
 #' @param row_standardize Logical; row-standardise `weights` before computing
 #'   the lag (default `TRUE`). Ignored when `lag` is supplied.
 #'
@@ -65,8 +70,8 @@
 #' @export
 spatial_markov <- function(data, id, time, value,
                            weights = NULL, lag = NULL,
-                           k = 5, m = k, breaks = NULL, fixed = TRUE,
-                           row_standardize = TRUE) {
+                           k = 5, m = k, breaks = NULL, lag_breaks = NULL,
+                           fixed = TRUE, row_standardize = TRUE) {
   stopifnot(is.data.frame(data))
   if (is.null(weights) == is.null(lag)) {
     stop("Supply exactly one of `weights` or `lag`.", call. = FALSE)
@@ -104,7 +109,7 @@ spatial_markov <- function(data, id, time, value,
 
   # Classify value (k classes) and spatial lag (m classes).
   vcls <- .classify(d$value, d$time, k = k, breaks = breaks, fixed = fixed)
-  lcls <- .classify(d$lagval, d$time, k = m, breaks = NULL, fixed = fixed)
+  lcls <- .classify(d$lagval, d$time, k = m, breaks = lag_breaks, fixed = fixed)
   d$vstate <- as.integer(vcls); k <- attr(vcls, "k")
   d$lstate <- as.integer(lcls); m <- attr(lcls, "k")
   sv <- seq_len(k)

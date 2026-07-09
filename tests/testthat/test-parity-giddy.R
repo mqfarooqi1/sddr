@@ -42,3 +42,45 @@ test_that("classic Markov transition matrix matches PySAL giddy exactly", {
   expect_equal(unname(sm$transitions), unname(as.matrix(gm$transitions)),
                tolerance = 1e-9)
 })
+
+test_that("spatial Markov matches PySAL giddy with identical cutoffs", {
+  skip_if_not(giddy_available(), "PySAL giddy not importable via reticulate")
+  have_libpysal <- tryCatch({ reticulate::import("libpysal"); TRUE },
+                            error = function(e) FALSE)
+  skip_if_not(have_libpysal, "libpysal not available")
+
+  giddy <- reticulate::import("giddy")
+  np <- reticulate::import("numpy")
+  libpysal <- reticulate::import("libpysal")
+
+  set.seed(11)
+  nr <- 6L; nc <- 6L; n <- nr * nc; periods <- 15L
+  w <- libpysal$weights$lat2W(nr, nc)
+  w$transform <- "r"
+  y <- matrix(rnorm(n * periods), n, periods)
+
+  wf <- w$full(); Wmat <- wf[[1]]; ids <- as.integer(wf[[2]])
+  rsum <- rowSums(Wmat); rsum[rsum == 0] <- 1; Wmat <- Wmat / rsum
+  dimnames(Wmat) <- list(ids, ids)
+
+  lagm <- Wmat %*% y
+  cc <- as.numeric(stats::quantile(as.vector(y),    c(.25, .5, .75)))
+  lc <- as.numeric(stats::quantile(as.vector(lagm), c(.25, .5, .75)))
+
+  Sp <- giddy$markov$Spatial_Markov(
+    np$array(y), w, cutoffs = np$array(cc), lag_cutoffs = np$array(lc),
+    fixed = TRUE, variable_name = "y"
+  )
+  gP <- Sp$P
+
+  dfl <- data.frame(id = rep(ids, times = periods),
+                    time = rep(seq_len(periods), each = n),
+                    value = as.vector(y))
+  smk <- spatial_markov(dfl, "id", "time", "value", weights = Wmat,
+                        k = 4L, m = 4L, breaks = cc, lag_breaks = lc,
+                        row_standardize = FALSE)
+
+  for (i in seq_len(dim(gP)[1])) {
+    expect_equal(gP[i, , ], unname(smk$matrices[[i]]), tolerance = 1e-9)
+  }
+})

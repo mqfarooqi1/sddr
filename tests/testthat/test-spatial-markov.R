@@ -49,6 +49,23 @@ test_that("conditional matrices are row-stochastic (or empty)", {
   }
 })
 
+test_that("explicit breaks and lag_breaks drive the classification", {
+  # 3 value classes via breaks; lag partitioned by an explicit lag break.
+  df <- data.frame(
+    id   = rep(1:2, each = 3),
+    time = rep(1:3, times = 2),
+    value = c(1, 5, 9, 9, 5, 1),
+    lg    = c(2, 2, 8, 8, 2, 2)  # precomputed spatial lag
+  )
+  sm <- spatial_markov(df, "id", "time", "value", lag = "lg",
+                       breaks = c(3, 7), lag_breaks = 5)
+  expect_equal(sm$classes, 3L)       # value: (-Inf,3],(3,7],(7,Inf]
+  expect_equal(sm$lag_classes, 2L)   # lag:   (-Inf,5],(5,Inf]
+  # lag states: c(2,2,8,8,2,2) with break 5 -> c(1,1,2,2,1,1)
+  expect_equal(sm$data$lstate[order(sm$data$id, sm$data$time)],
+               c(1, 1, 2, 2, 1, 1))
+})
+
 test_that("exactly one of weights or lag is required", {
   df <- data.frame(id = 1:4, time = 1:4, value = c(1, 2, 3, 4))
   expect_error(spatial_markov(df, "id", "time", "value"), "exactly one")
