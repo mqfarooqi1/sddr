@@ -3,23 +3,48 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-**Spatial distribution dynamics for R** — how a cross-sectional distribution of
-values (incomes, prices, rates, indices) evolves over time.
+**The complete toolkit for distribution dynamics in R** — analysing how a
+distribution of values across units (regions, firms, markets, assets) *evolves
+over time*, and where it is heading in the long run.
 
-`sddr` is a tidy, long-format toolkit for distribution-dynamics analysis. It is
-built to be a **superset** of the methods in PySAL's
-[`giddy`](https://pysal.org/giddy/) and the R package
-[`griddy`](https://github.com/dshkol/griddy), and to go beyond both with
+`sddr` brings distribution-dynamics analysis into one tidy, long-format
+framework and pushes it **beyond what any existing package offers** — with
 continuous stochastic kernels, continuous-time transitions, and modern
-inference in later releases.
+inference that current R (and Python) tooling simply does not provide.
 
-Unlike matrix-position APIs, `sddr` works directly from long panel data with
-explicit `id`, `time`, and `value` columns.
+## What makes `sddr` different — the new ideas
+
+These are the capabilities that set `sddr` apart. (Status: ✅ available now ·
+🔜 in active development.)
+
+- 🔜 **Continuous stochastic kernels** — density-based distribution dynamics
+  (Quah), estimating the full conditional density with *no* arbitrary class
+  binning. The modern approach, almost absent from R.
+- 🔜 **Continuous-time & irregular-interval Markov** — for panels not observed
+  on a regular time grid.
+- 🔜 **Modern inference** — bootstrap and Bayesian intervals for transition
+  probabilities, plus formal tests for Markov order, time-stationarity, and
+  *whether space matters at all*.
+- 🔜 **Change-point / non-stationarity detection** in transition dynamics.
+- 🔜 **Simulation engine, animated & interactive visualisation, `broom`
+  tidiers**, and an optional compiled backend for large panels.
+
+## Established methods, done right
+
+A complete, tidy, `sf`-friendly implementation of the classical toolkit:
+
+- ✅ **Classic Markov** chains and **ergodic** (steady-state) analysis
+- ✅ **Spatial Markov** — transitions conditioned on neighbourhood context
+- 🔜 LISA / full-rank / geo-rank Markov · rank & exchange mobility (Tau family)
+  · mobility indices (Prais, Shorrocks) · directional LISA · sequence analysis
+  · mean first-passage & sojourn times
+
+All from long-format `id` / `time` / `value` data — no transition-matrix
+bookkeeping.
 
 ## Installation
 
 ``` r
-# development version
 # install.packages("pak")
 pak::pak("mqfarooqi1/sddr")
 ```
@@ -29,32 +54,37 @@ pak::pak("mqfarooqi1/sddr")
 ``` r
 library(sddr)
 
-# Long-format panel: one row per unit per period.
 df <- data.frame(
   id    = rep(1:200, each = 5),
   time  = rep(2000:2004, times = 200),
   value = rnorm(1000)
 )
 
-# Classic Markov chain over relative-distribution quintiles.
+# Classic Markov chain over distribution quintiles.
 m <- markov(df, id = "id", time = "time", value = "value", k = 5)
 m
-
-# Long-run (ergodic) distribution.
-steady_state(m)
+steady_state(m)              # long-run distribution
 ```
 
 ## Roadmap
 
-| Phase | Contents |
-|------|-----------|
-| **1 (now)** | Classic Markov, ergodic steady-state, tidy design |
-| 2 | Spatial Markov, LISA / rank Markov, Tau family, mobility indices, sequences (full `giddy` parity) |
-| 3 | Continuous **stochastic kernels**, continuous-time Markov, modern inference (bootstrap/Bayes, order & stationarity & spatial-dependence tests) |
-| 4 | Compiled backend, simulation engine, animated/interactive visualisation |
+| Release | Focus |
+|--------|--------|
+| **v0.1** | The complete classical toolkit in one tidy API (Markov, spatial Markov, rank mobility, ergodic, sequences) |
+| v0.2+ | The new ideas: continuous **stochastic kernels**, continuous-time Markov, modern inference, change-point detection |
+| later | Compiled backend, simulation engine, animated/interactive visualisation |
 
-Every shared method is validated for numerical parity against the reference
-`giddy` implementation.
+## Validation & prior work
+
+`sddr`'s methods build directly on the distribution-dynamics literature —
+Quah (1993) for distributional convergence and Rey (2001) for spatial Markov
+dynamics.
+
+As a correctness guarantee, where methods overlap with **PySAL's `giddy`** (the
+established reference implementation) `sddr` is checked for numerical parity:
+the classic and spatial Markov estimators currently reproduce `giddy` to
+machine precision. `sddr` extends well past `giddy` and the R package `griddy`
+with the continuous-kernel, continuous-time, and inference methods above.
 
 ## License
 
