@@ -12,6 +12,9 @@
   [`geo_rank_markov()`](https://mqfarooqi1.github.io/sddr/reference/geo_rank_markov.md):
   rank-based Markov chains (ranks-as-states, and
   units-exchanging-rank-positions) — no binning required.
+- [`lisa_markov()`](https://mqfarooqi1.github.io/sddr/reference/lisa_markov.md):
+  Markov chain over the four Moran-scatterplot quadrants (HH/LH/LL/HL),
+  capturing the joint dynamics of a unit and its neighbourhood.
 - [`spatial_markov()`](https://mqfarooqi1.github.io/sddr/reference/spatial_markov.md):
   spatial Markov chain (Rey 2001) with transition matrices conditioned
   on the spatial-lag class of the neighbourhood. Accepts either a
