@@ -7,6 +7,11 @@
   classic discrete-time, first-order Markov transition estimation from
   tidy long-format `id`/`time`/`value` panel data, with quantile-based
   (fixed or per-period) class discretisation.
+- [`full_rank_markov()`](https://mqfarooqi1.github.io/sddr/reference/full_rank_markov.md)
+  and
+  [`geo_rank_markov()`](https://mqfarooqi1.github.io/sddr/reference/geo_rank_markov.md):
+  rank-based Markov chains (ranks-as-states, and
+  units-exchanging-rank-positions) — no binning required.
 - [`spatial_markov()`](https://mqfarooqi1.github.io/sddr/reference/spatial_markov.md):
   spatial Markov chain (Rey 2001) with transition matrices conditioned
   on the spatial-lag class of the neighbourhood. Accepts either a

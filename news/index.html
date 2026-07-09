@@ -37,6 +37,8 @@
 <li>
 <code><a href="../reference/markov.html">markov()</a></code>: classic discrete-time, first-order Markov transition estimation from tidy long-format <code>id</code>/<code>time</code>/<code>value</code> panel data, with quantile-based (fixed or per-period) class discretisation.</li>
 <li>
+<code><a href="../reference/full_rank_markov.html">full_rank_markov()</a></code> and <code><a href="../reference/geo_rank_markov.html">geo_rank_markov()</a></code>: rank-based Markov chains (ranks-as-states, and units-exchanging-rank-positions) — no binning required.</li>
+<li>
 <code><a href="../reference/spatial_markov.html">spatial_markov()</a></code>: spatial Markov chain (Rey 2001) with transition matrices conditioned on the spatial-lag class of the neighbourhood. Accepts either a spatial weights matrix (lag computed internally) or a precomputed lag column, and explicit <code>breaks</code> / <code>lag_breaks</code> cut points. With matching cut points it reproduces PySAL <code>giddy</code>’s spatial Markov matrices to machine precision.</li>
 <li>
 <code><a href="../reference/steady_state.html">steady_state()</a></code>: ergodic / stationary distribution of a transition matrix or an <code>sddr_markov</code> object.</li>

@@ -8,6 +8,10 @@ Estimate class-transition dynamics from tidy panel data.
   Classic Markov chain for distribution dynamics
 - [`spatial_markov()`](https://mqfarooqi1.github.io/sddr/reference/spatial_markov.md)
   : Spatial Markov chain for distribution dynamics
+- [`full_rank_markov()`](https://mqfarooqi1.github.io/sddr/reference/full_rank_markov.md)
+  : Full-rank Markov chain
+- [`geo_rank_markov()`](https://mqfarooqi1.github.io/sddr/reference/geo_rank_markov.md)
+  : Geographic-rank Markov chain
 
 ## Ergodic analysis
 
