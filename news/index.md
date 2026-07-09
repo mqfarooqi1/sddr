@@ -22,6 +22,12 @@
   recurrence times on the diagonal.
 - [`sojourn_time()`](https://mqfarooqi1.github.io/sddr/reference/sojourn_time.md):
   expected persistence time in each class.
+- [`tau()`](https://mqfarooqi1.github.io/sddr/reference/tau.md):
+  Kendall’s tau rank correlation (positional / exchange mobility), with
+  concordant/discordant counts and an asymptotic p-value.
+- [`theta()`](https://mqfarooqi1.github.io/sddr/reference/theta.md):
+  Theta rank-mobility statistic (Rey 2004) decomposing rank change by
+  regime.
 - [`print()`](https://rdrr.io/r/base/print.html) methods for
   `sddr_markov` and `sddr_spatial_markov`.
 - Hex logo, pkgdown site configuration, and GitHub Actions R-CMD-check

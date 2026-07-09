@@ -115,3 +115,12 @@ Long-run behaviour of a transition matrix.
 - [`sojourn_time()`](https://mqfarooqi1.github.io/sddr/reference/sojourn_time.md)
   : Sojourn times
 
+## Rank mobility
+
+Positional (exchange) mobility measures.
+
+- [`tau()`](https://mqfarooqi1.github.io/sddr/reference/tau.md) :
+  Kendall's tau rank correlation
+- [`theta()`](https://mqfarooqi1.github.io/sddr/reference/theta.md) :
+  Theta rank-mobility statistic
+
