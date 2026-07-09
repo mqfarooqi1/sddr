@@ -1,6 +1,6 @@
-# sddr 0.0.0.9000
+# sddr 0.1.0
 
-* Initial scaffold.
+* Initial CRAN release.
 * `markov()`: classic discrete-time, first-order Markov transition estimation
   from tidy long-format `id`/`time`/`value` panel data, with quantile-based
   (fixed or per-period) class discretisation.
