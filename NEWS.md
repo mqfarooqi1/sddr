@@ -4,6 +4,8 @@
 * `markov()`: classic discrete-time, first-order Markov transition estimation
   from tidy long-format `id`/`time`/`value` panel data, with quantile-based
   (fixed or per-period) class discretisation.
+* `full_rank_markov()` and `geo_rank_markov()`: rank-based Markov chains
+  (ranks-as-states, and units-exchanging-rank-positions) — no binning required.
 * `spatial_markov()`: spatial Markov chain (Rey 2001) with transition matrices
   conditioned on the spatial-lag class of the neighbourhood. Accepts either a
   spatial weights matrix (lag computed internally) or a precomputed lag column,

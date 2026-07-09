@@ -152,3 +152,25 @@ test_that("mobility indices and local tau match PySAL giddy", {
   expect_equal(st$tau_local, as.numeric(gt$tau_local), tolerance = 1e-9)
   expect_equal(st$tau, as.numeric(gt$tau), tolerance = 1e-9)
 })
+
+test_that("full-rank and geo-rank Markov match PySAL giddy", {
+  skip_if_not(giddy_available(), "PySAL giddy not importable via reticulate")
+
+  giddy <- reticulate::import("giddy")
+  np <- reticulate::import("numpy")
+
+  set.seed(7)
+  n <- 8L; periods <- 14L
+  y <- matrix(rnorm(n * periods), n, periods)
+  df <- data.frame(id = rep(1:n, times = periods),
+                   time = rep(1:periods, each = n),
+                   value = as.vector(y))
+
+  frm <- giddy$markov$FullRank_Markov(np$array(y), summary = FALSE)
+  grm <- giddy$markov$GeoRank_Markov(np$array(y), summary = FALSE)
+
+  expect_equal(unname(full_rank_markov(df, "id", "time", "value")$matrix),
+               unname(as.matrix(frm$p)), tolerance = 1e-9)
+  expect_equal(unname(geo_rank_markov(df, "id", "time", "value")$matrix),
+               unname(as.matrix(grm$p)), tolerance = 1e-9)
+})

@@ -1,6 +1,6 @@
 #' @export
 print.sddr_markov <- function(x, digits = 3, ...) {
-  cat("<sddr> classic Markov chain\n")
+  cat(sprintf("<sddr> %s Markov chain\n", x$kind %||% "classic"))
   cat(sprintf("  units: %d | transitions: %d | classes: %d | breaks: %s\n",
               x$n, x$n_transitions, x$classes,
               if (isTRUE(x$fixed)) "fixed" else "per-period"))
