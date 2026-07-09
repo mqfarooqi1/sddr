@@ -44,8 +44,8 @@ lisa_markov(data, id, time, value, weights, row_standardize = TRUE)
 
 - weights:
 
-  A square numeric spatial weights matrix whose row and column names
-  match the unit ids.
+  Spatial weights: a square numeric matrix whose row and column names
+  match the unit ids, or an spdep `listw` or `nb` object.
 
 - row_standardize:
 

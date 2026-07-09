@@ -43,5 +43,11 @@
   the Shorrocks B1/B2 indices).
 - [`print()`](https://rdrr.io/r/base/print.html) methods for
   `sddr_markov` and `sddr_spatial_markov`.
+- [`spatial_markov()`](https://mqfarooqi1.github.io/sddr/reference/spatial_markov.md)
+  and
+  [`lisa_markov()`](https://mqfarooqi1.github.io/sddr/reference/lisa_markov.md)
+  now accept spatial weights as an `listw` or `nb` object (e.g. built
+  from an `sf` layer), in addition to a plain weights matrix. ‘spdep’ is
+  an optional (Suggests) dependency.
 - Hex logo, pkgdown site configuration, and GitHub Actions R-CMD-check
   CI.

@@ -109,10 +109,12 @@ are compared in sorted order within each unit.</p></dd>
 
 
 <dt id="arg-weights">weights<a class="anchor" aria-label="anchor" href="#arg-weights"></a></dt>
-<dd><p>Optional square numeric spatial weights matrix whose row and
-column names match the unit ids. Used to compute the spatial lag of <code>value</code>
-within each period. Requires a balanced panel. Exactly one of <code>weights</code> or
-<code>lag</code> must be supplied.</p></dd>
+<dd><p>Optional spatial weights: a square numeric matrix whose row
+and column names match the unit ids, or an <span class="pkg">spdep</span> <code>listw</code> or <code>nb</code>
+object (e.g. built from an <code>sf</code> layer with <code><a href="https://r-spatial.github.io/spdep/reference/poly2nb.html" class="external-link">spdep::poly2nb()</a></code> and
+<code><a href="https://r-spatial.github.io/spdep/reference/nb2listw.html" class="external-link">spdep::nb2listw()</a></code>). Used to compute the spatial lag of <code>value</code> within
+each period. Requires a balanced panel. Exactly one of <code>weights</code> or <code>lag</code>
+must be supplied.</p></dd>
 
 
 <dt id="arg-lag">lag<a class="anchor" aria-label="anchor" href="#arg-lag"></a></dt>

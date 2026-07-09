@@ -56,10 +56,15 @@ spatial_markov(
 
 - weights:
 
-  Optional square numeric spatial weights matrix whose row and column
-  names match the unit ids. Used to compute the spatial lag of `value`
-  within each period. Requires a balanced panel. Exactly one of
-  `weights` or `lag` must be supplied.
+  Optional spatial weights: a square numeric matrix whose row and column
+  names match the unit ids, or an spdep `listw` or `nb` object (e.g.
+  built from an `sf` layer with
+  [`spdep::poly2nb()`](https://r-spatial.github.io/spdep/reference/poly2nb.html)
+  and
+  [`spdep::nb2listw()`](https://r-spatial.github.io/spdep/reference/nb2listw.html)).
+  Used to compute the spatial lag of `value` within each period.
+  Requires a balanced panel. Exactly one of `weights` or `lag` must be
+  supplied.
 
 - lag:
 
