@@ -14,5 +14,9 @@
 * `mfpt()`: mean first passage times (Kemeny-Snell fundamental matrix), with
   mean recurrence times on the diagonal.
 * `sojourn_time()`: expected persistence time in each class.
+* `tau()`: Kendall's tau rank correlation (positional / exchange mobility),
+  with concordant/discordant counts and an asymptotic p-value.
+* `theta()`: Theta rank-mobility statistic (Rey 2004) decomposing rank change
+  by regime.
 * `print()` methods for `sddr_markov` and `sddr_spatial_markov`.
 * Hex logo, pkgdown site configuration, and GitHub Actions R-CMD-check CI.

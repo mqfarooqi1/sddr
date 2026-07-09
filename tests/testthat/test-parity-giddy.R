@@ -105,3 +105,24 @@ test_that("ergodic quantities match PySAL giddy", {
                as.numeric(giddy$markov$sojourn_time(np$array(P))),
                tolerance = 1e-9)
 })
+
+test_that("Tau and Theta match PySAL giddy", {
+  skip_if_not(giddy_available(), "PySAL giddy not importable via reticulate")
+
+  giddy <- reticulate::import("giddy")
+  np <- reticulate::import("numpy")
+
+  set.seed(3)
+  n <- 40L
+  x <- rnorm(n); y <- x + rnorm(n)
+  gt <- giddy$rank$Tau(np$array(x), np$array(y))
+  st <- tau(x, y)
+  expect_equal(st$tau, as.numeric(gt$tau), tolerance = 1e-9)
+  expect_equal(st$concordant, as.numeric(gt$concordant))
+  expect_equal(st$discordant, as.numeric(gt$discordant))
+
+  ym <- matrix(rnorm(40), nrow = 10)
+  reg <- rep(c(0L, 1L), each = 5)
+  gth <- giddy$rank$Theta(np$array(ym), np$array(reg), permutations = 0L)
+  expect_equal(theta(ym, reg)$theta, as.numeric(gth$theta), tolerance = 1e-9)
+})

@@ -18,3 +18,8 @@ reference:
   - steady_state
   - mfpt
   - sojourn_time
+- title: Rank mobility
+  desc: Positional (exchange) mobility measures.
+  contents:
+  - tau
+  - theta
