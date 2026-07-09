@@ -1,0 +1,8 @@
+^sddr\.Rproj$
+^\.Rproj\.user$
+^\.git$
+^\.github$
+^\.gitignore$
+^LICENSE\.md$
+^.*\.Rcheck$
+^cran-comments\.md$

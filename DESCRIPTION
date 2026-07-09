@@ -1,0 +1,26 @@
+Package: sddr
+Title: Spatial Distribution Dynamics
+Version: 0.0.0.9000
+Authors@R:
+    person("Muhammad", "Farooqi",
+           email = "mqfarooqi@gmail.com",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-4918-9791"))
+Description: A tidy toolkit for the analysis of distribution dynamics: how a
+    cross-sectional distribution of values evolves over time. Provides
+    discrete-time Markov transition estimation, ergodic (steady-state)
+    analysis, and - across later releases - spatial Markov chains, rank
+    mobility, continuous stochastic kernels and modern inference. Methods
+    build on the distribution-dynamics literature (Quah (1993)
+    <doi:10.1016/0014-2921(93)90031-3>) and are designed around long-format
+    'id'/'time'/'value' data rather than transition matrices, so that panel
+    data and (in later releases) 'sf' objects flow through unchanged.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+URL: https://github.com/mqfarooqi1/sddr
+BugReports: https://github.com/mqfarooqi1/sddr/issues
+Config/roxygen2/version: 8.0.0
