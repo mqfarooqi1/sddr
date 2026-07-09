@@ -1,6 +1,7 @@
-# sddr 0.1.0
+# sddr 0.1.1
 
 * Initial CRAN release.
+* Removed an unresolvable DOI from the Quah (1993) reference.
 * `markov()`: classic discrete-time, first-order Markov transition estimation
   from tidy long-format `id`/`time`/`value` panel data, with quantile-based
   (fixed or per-period) class discretisation.

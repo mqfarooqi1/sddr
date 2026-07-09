@@ -1,3 +1,13 @@
+## Resubmission
+
+This is a resubmission (0.1.1). In response to the review of 0.1.0 I have:
+
+* Removed the invalid DOI (10.1016/0014-2921(93)90031-3) from the Quah (1993)
+  reference; the reference is kept as plain text.
+* Note on the flagged "possibly misspelled words": 'Quah' and 'Rey' are author
+  surnames and 'ergodic' is a standard technical term; all are spelled
+  correctly.
+
 ## R CMD check results
 
 0 errors | 0 warnings | 1 note

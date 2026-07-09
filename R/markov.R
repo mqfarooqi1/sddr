@@ -45,7 +45,6 @@
 #' @references
 #' Quah, D. (1993). Empirical cross-section dynamics in economic growth.
 #' *European Economic Review*, 37(2-3), 426-434.
-#' \doi{10.1016/0014-2921(93)90031-3}
 #'
 #' @examples
 #' set.seed(1)

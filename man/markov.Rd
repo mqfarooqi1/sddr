@@ -71,7 +71,6 @@ m$steady_state
 \references{
 Quah, D. (1993). Empirical cross-section dynamics in economic growth.
 \emph{European Economic Review}, 37(2-3), 426-434.
-\doi{10.1016/0014-2921(93)90031-3}
 }
 \seealso{
 \code{\link[=steady_state]{steady_state()}}
