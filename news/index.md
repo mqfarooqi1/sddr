@@ -28,6 +28,11 @@
 - [`theta()`](https://mqfarooqi1.github.io/sddr/reference/theta.md):
   Theta rank-mobility statistic (Rey 2004) decomposing rank change by
   regime.
+- [`tau_local()`](https://mqfarooqi1.github.io/sddr/reference/tau_local.md):
+  per-observation (local) Kendall’s tau decomposition.
+- [`mobility()`](https://mqfarooqi1.github.io/sddr/reference/mobility.md):
+  Markov mobility indices (Prais, determinant, second-eigenvalue L2, and
+  the Shorrocks B1/B2 indices).
 - [`print()`](https://rdrr.io/r/base/print.html) methods for
   `sddr_markov` and `sddr_spatial_markov`.
 - Hex logo, pkgdown site configuration, and GitHub Actions R-CMD-check

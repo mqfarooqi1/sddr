@@ -121,6 +121,15 @@ Positional (exchange) mobility measures.
 
 - [`tau()`](https://mqfarooqi1.github.io/sddr/reference/tau.md) :
   Kendall's tau rank correlation
+- [`tau_local()`](https://mqfarooqi1.github.io/sddr/reference/tau_local.md)
+  : Local Kendall's tau (local indicator of mobility association)
 - [`theta()`](https://mqfarooqi1.github.io/sddr/reference/theta.md) :
   Theta rank-mobility statistic
+
+## Mobility indices
+
+Scalar summaries of a transition matrix.
+
+- [`mobility()`](https://mqfarooqi1.github.io/sddr/reference/mobility.md)
+  : Markov mobility indices
 
