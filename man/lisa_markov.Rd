@@ -13,8 +13,8 @@ The panel must be balanced (every unit present in every period).}
 \item{id, time, value}{Character scalars naming the unit, period, and numeric
 value columns.}
 
-\item{weights}{A square numeric spatial weights matrix whose row and column
-names match the unit ids.}
+\item{weights}{Spatial weights: a square numeric matrix whose row and column
+names match the unit ids, or an \pkg{spdep} \code{listw} or \code{nb} object.}
 
 \item{row_standardize}{Logical; row-standardise \code{weights} before computing
 the spatial lag (default \code{TRUE}).}

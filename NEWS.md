@@ -26,4 +26,8 @@
 * `mobility()`: Markov mobility indices (Prais, determinant, second-eigenvalue
   L2, and the Shorrocks B1/B2 indices).
 * `print()` methods for `sddr_markov` and `sddr_spatial_markov`.
+* `spatial_markov()` and `lisa_markov()` now accept spatial weights as an
+  \pkg{spdep} `listw` or `nb` object (e.g. built from an `sf` layer), in
+  addition to a plain weights matrix. 'spdep' is an optional (Suggests)
+  dependency.
 * Hex logo, pkgdown site configuration, and GitHub Actions R-CMD-check CI.

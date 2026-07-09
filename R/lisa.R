@@ -16,8 +16,8 @@
 #' and its neighbourhood.
 #'
 #' @inheritParams full_rank_markov
-#' @param weights A square numeric spatial weights matrix whose row and column
-#'   names match the unit ids.
+#' @param weights Spatial weights: a square numeric matrix whose row and column
+#'   names match the unit ids, or an \pkg{spdep} `listw` or `nb` object.
 #' @param row_standardize Logical; row-standardise `weights` before computing
 #'   the spatial lag (default `TRUE`).
 #'
@@ -50,7 +50,7 @@ lisa_markov <- function(data, id, time, value, weights,
   Y <- .pivot_wide(data, id, time, value)
   ids <- rownames(Y)
 
-  W <- as.matrix(weights)
+  W <- .as_weights_matrix(weights)
   if (is.null(rownames(W)) || is.null(colnames(W))) {
     stop("`weights` must have row and column names matching unit ids.",
          call. = FALSE)

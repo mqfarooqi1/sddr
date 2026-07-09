@@ -16,10 +16,12 @@
 #' of any particular spatial-data stack).
 #'
 #' @inheritParams markov
-#' @param weights Optional square numeric spatial weights matrix whose row and
-#'   column names match the unit ids. Used to compute the spatial lag of `value`
-#'   within each period. Requires a balanced panel. Exactly one of `weights` or
-#'   `lag` must be supplied.
+#' @param weights Optional spatial weights: a square numeric matrix whose row
+#'   and column names match the unit ids, or an \pkg{spdep} `listw` or `nb`
+#'   object (e.g. built from an `sf` layer with [spdep::poly2nb()] and
+#'   [spdep::nb2listw()]). Used to compute the spatial lag of `value` within
+#'   each period. Requires a balanced panel. Exactly one of `weights` or `lag`
+#'   must be supplied.
 #' @param lag Optional name (character scalar) of a column giving a precomputed
 #'   spatial lag of `value`.
 #' @param m Integer number of spatial-lag classes to condition on. Defaults to
@@ -170,7 +172,7 @@ spatial_markov <- function(data, id, time, value,
 
 # Row-standardised spatial lag of `value`, computed within each period.
 .spatial_lag <- function(d, W, row_standardize) {
-  W <- as.matrix(W)
+  W <- .as_weights_matrix(W)
   if (nrow(W) != ncol(W)) stop("`weights` must be a square matrix.",
                                call. = FALSE)
   ids <- rownames(W)

@@ -29,10 +29,12 @@ are compared in sorted order within each unit.}
 
 \item{value}{Name (character scalar) of the numeric column to analyse.}
 
-\item{weights}{Optional square numeric spatial weights matrix whose row and
-column names match the unit ids. Used to compute the spatial lag of \code{value}
-within each period. Requires a balanced panel. Exactly one of \code{weights} or
-\code{lag} must be supplied.}
+\item{weights}{Optional spatial weights: a square numeric matrix whose row
+and column names match the unit ids, or an \pkg{spdep} \code{listw} or \code{nb}
+object (e.g. built from an \code{sf} layer with \code{\link[spdep:poly2nb]{spdep::poly2nb()}} and
+\code{\link[spdep:nb2listw]{spdep::nb2listw()}}). Used to compute the spatial lag of \code{value} within
+each period. Requires a balanced panel. Exactly one of \code{weights} or \code{lag}
+must be supplied.}
 
 \item{lag}{Optional name (character scalar) of a column giving a precomputed
 spatial lag of \code{value}.}
