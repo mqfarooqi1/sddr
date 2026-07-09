@@ -65,6 +65,56 @@ print.sddr_tau <- function(x, digits = 4, ...) {
   invisible(x)
 }
 
+#' Local Kendall's tau (local indicator of mobility association)
+#'
+#' @description
+#' Decomposes Kendall's tau into a per-observation contribution. Each unit's
+#' local tau is the average sign of its pairwise rank concordance with all other
+#' units, \eqn{\sum_{j \ne i} S_{ij} / (n - 1)}, where
+#' \eqn{S_{ij} = \mathrm{sign}((x_i - x_j)(y_i - y_j))}. Units with local tau
+#' near 1 keep their relative position; near -1 they move against the grain.
+#' The overall (tau-a) statistic is the mean of the off-diagonal `S`.
+#'
+#' @param x,y Numeric vectors of equal length.
+#'
+#' @return An object of class `sddr_tau_local`: a list with the per-observation
+#'   `tau_local` vector, the global `tau` (tau-a), the sign matrix `S`, and `n`.
+#'
+#' @examples
+#' set.seed(1)
+#' x <- rnorm(20); y <- x + rnorm(20)
+#' tau_local(x, y)$tau_local
+#'
+#' @seealso [tau()]
+#' @export
+tau_local <- function(x, y) {
+  x <- as.numeric(x); y <- as.numeric(y)
+  if (length(x) != length(y)) {
+    stop("`x` and `y` must have the same length.", call. = FALSE)
+  }
+  n <- length(x)
+  if (n < 2L) stop("need at least two observations.", call. = FALSE)
+
+  S <- sign(outer(x, x, "-")) * sign(outer(y, y, "-"))
+  diag(S) <- 0
+
+  structure(
+    list(tau_local = rowSums(S) / (n - 1),
+         tau = sum(S) / (n * (n - 1)),
+         S = S, n = n),
+    class = "sddr_tau_local"
+  )
+}
+
+#' @export
+print.sddr_tau_local <- function(x, digits = 4, ...) {
+  cat("<sddr> local Kendall's tau\n")
+  cat(sprintf("  global tau (tau-a) = %.*f | n = %d\n", digits, x$tau, x$n))
+  cat("  local tau summary:\n")
+  print(round(summary(x$tau_local), digits))
+  invisible(x)
+}
+
 #' Theta rank-mobility statistic
 #'
 #' @description

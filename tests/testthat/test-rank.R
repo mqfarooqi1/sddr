@@ -32,3 +32,11 @@ test_that("theta values lie in [0, 1]", {
   th <- theta(y, reg)$theta
   expect_true(all(th >= 0 & th <= 1))
 })
+
+test_that("mean of local tau equals the global tau-a", {
+  set.seed(5)
+  x <- rnorm(20); y <- x + rnorm(20)
+  tl <- tau_local(x, y)
+  expect_s3_class(tl, "sddr_tau_local")
+  expect_equal(mean(tl$tau_local), tl$tau)
+})

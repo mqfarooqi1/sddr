@@ -22,4 +22,9 @@ reference:
   desc: Positional (exchange) mobility measures.
   contents:
   - tau
+  - tau_local
   - theta
+- title: Mobility indices
+  desc: Scalar summaries of a transition matrix.
+  contents:
+  - mobility

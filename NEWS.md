@@ -18,5 +18,8 @@
   with concordant/discordant counts and an asymptotic p-value.
 * `theta()`: Theta rank-mobility statistic (Rey 2004) decomposing rank change
   by regime.
+* `tau_local()`: per-observation (local) Kendall's tau decomposition.
+* `mobility()`: Markov mobility indices (Prais, determinant, second-eigenvalue
+  L2, and the Shorrocks B1/B2 indices).
 * `print()` methods for `sddr_markov` and `sddr_spatial_markov`.
 * Hex logo, pkgdown site configuration, and GitHub Actions R-CMD-check CI.

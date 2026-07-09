@@ -126,3 +126,29 @@ test_that("Tau and Theta match PySAL giddy", {
   gth <- giddy$rank$Theta(np$array(ym), np$array(reg), permutations = 0L)
   expect_equal(theta(ym, reg)$theta, as.numeric(gth$theta), tolerance = 1e-9)
 })
+
+test_that("mobility indices and local tau match PySAL giddy", {
+  skip_if_not(giddy_available(), "PySAL giddy not importable via reticulate")
+
+  giddy <- reticulate::import("giddy")
+  np <- reticulate::import("numpy")
+
+  set.seed(4)
+  k <- 5L
+  P <- matrix(runif(k * k), k, k); P <- P / rowSums(P)
+  mm <- giddy$mobility$markov_mobility
+  codes <- c(prais = "P", determinant = "D", L2 = "L2",
+             shorrock1 = "B1", shorrock2 = "B2")
+  for (nm in names(codes)) {
+    expect_equal(mobility(P, nm)[[1]],
+                 as.numeric(mm(np$array(P), measure = codes[[nm]])),
+                 tolerance = 1e-7)
+  }
+
+  n <- 30L
+  x <- rnorm(n); y <- x + rnorm(n)
+  gt <- giddy$rank$Tau_Local(np$array(x), np$array(y))
+  st <- tau_local(x, y)
+  expect_equal(st$tau_local, as.numeric(gt$tau_local), tolerance = 1e-9)
+  expect_equal(st$tau, as.numeric(gt$tau), tolerance = 1e-9)
+})

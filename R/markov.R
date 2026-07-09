@@ -100,7 +100,7 @@ markov <- function(data, id, time, value, k = 5, breaks = NULL, fixed = TRUE) {
         factor(s[-length(s)], levels = states),
         factor(s[-1L],         levels = states)
       )
-      counts <- counts + as.matrix(tab)
+      counts <- counts + unclass(tab)
     }
   }
 
