@@ -44,6 +44,15 @@ bookkeeping.
 
 ## Installation
 
+Install the released version from CRAN:
+
+``` r
+
+install.packages("sddr")
+```
+
+Or the development version from GitHub:
+
 ``` r
 
 # install.packages("pak")
