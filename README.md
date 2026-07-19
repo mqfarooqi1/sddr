@@ -4,6 +4,7 @@
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mqfarooqi1/sddr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mqfarooqi1/sddr/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/sddr)](https://CRAN.R-project.org/package=sddr)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/sddr)](https://CRAN.R-project.org/package=sddr)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
@@ -47,6 +48,14 @@ All from long-format `id` / `time` / `value` data — no transition-matrix
 bookkeeping.
 
 ## Installation
+
+Install the released version from CRAN:
+
+``` r
+install.packages("sddr")
+```
+
+Or the development version from GitHub:
 
 ``` r
 # install.packages("pak")

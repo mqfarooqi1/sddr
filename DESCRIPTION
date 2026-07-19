@@ -1,6 +1,6 @@
 Package: sddr
 Title: Spatial Distribution Dynamics
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R:
     person("Muhammad", "Farooqi",
            email = "mqfarooqi@gmail.com",
