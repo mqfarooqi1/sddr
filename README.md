@@ -5,6 +5,7 @@
 [![R-CMD-check](https://github.com/mqfarooqi1/sddr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mqfarooqi1/sddr/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/sddr)](https://CRAN.R-project.org/package=sddr)
 [![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/sddr)](https://CRAN.R-project.org/package=sddr)
+[![R-universe](https://mqfarooqi1.r-universe.dev/badges/sddr)](https://mqfarooqi1.r-universe.dev/sddr)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
