@@ -4,6 +4,8 @@
 
 ## sddr 0.1.1
 
+CRAN release: 2026-07-19
+
 - Initial CRAN release.
 - Removed an unresolvable DOI from the Quah (1993) reference.
 - [`markov()`](https://mqfarooqi1.github.io/sddr/reference/markov.md):
